@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Border.Static.Background" Color="#fcfcfc"/>
+    <SolidColorBrush x:Key="Border.Static.Border" Color="#ececec"/>
+
+    <Style x:Key="TabberBorderDefaultStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource Border.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Border.Static.Border}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="ClipToBounds" Value="True"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,57 @@
+﻿<Window x:Class="Tabber_Goals.Main.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Components="clr-namespace:Tabber_Goals.Component"
+        xmlns:local="clr-namespace:Tabber_Goals"
+        mc:Ignorable="d"
+        Title="Tabber Goals" Height="450" Width="800" Background="#f9f9f9" Loaded="Window_Loaded">
+    
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--#region Toolbar-->
+        <StackPanel Grid.Row="0" 
+                    FlowDirection="RightToLeft" 
+                    Orientation="Horizontal">
+
+            <!--Add Goal Button-->
+            <Button Name="AddGoalButton" Click="AddGoalButton_Click"
+                    Style="{DynamicResource TabberButtonDefaultStyle}" 
+                    Width="100"
+                    Height="30"
+                    Content="Add Goal"
+                    Margin="0,0,5,0">
+            </Button>
+                    
+
+            <!--Delete All Goals Button-->
+            <Button Name="DeleteAllGoalsButton" Click="DeleteAllGoalsButton_Click"
+                    Style="{DynamicResource TabberButtonDefaultStyle}" 
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,5,0" Padding="4">
+
+                <Image Source="../Assets/Toolbar/Delete-Unselected-25px.png"/>
+            </Button>
+            
+        </StackPanel>
+        <!--#endregion-->
+        
+        <!--#region Goal Area-->
+        <Border Style="{DynamicResource TabberBorderDefaultStyle}" 
+                Grid.Row="1" 
+                Margin="0,5,0,0" Padding="5">
+            
+            <ScrollViewer>
+                <WrapPanel Name="GoalArea"/>
+            </ScrollViewer>
+            
+        </Border>
+        <!--#endregion-->
+    </Grid>
+</Window>
