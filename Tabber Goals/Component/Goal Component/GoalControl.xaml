@@ -88,7 +88,8 @@
                         Width="auto" Height="auto"
                         Margin="2,2,2,2"
                         DisplayDateEnd="12/31/9999"
-                        DisplayDateStart="01/01/1753">
+                        DisplayDateStart="01/01/1753"
+                        SelectedDateFormat="Long">
             </DatePicker>
 
             <!--#endregion-->
