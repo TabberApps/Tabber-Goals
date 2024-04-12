@@ -123,6 +123,7 @@
     <Compile Include="Component\Goal Component\IGoalComponent.cs" />
     <Compile Include="Database\DatabaseAccessClass.cs" />
     <Compile Include="Database\DatabaseLogicClass.cs" />
+    <Compile Include="Global\GlobalClass.cs" />
     <Compile Include="Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

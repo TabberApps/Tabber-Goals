@@ -47,5 +47,10 @@ namespace Tabber_Goals.Main
         {
             MainWindowClass.DeleteAllGoals(GoalArea);
         }
+
+        private void GoalArea_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            MainWindowClass.GoalArea_SizeChanged(GoalArea);
+        }
     }
 }

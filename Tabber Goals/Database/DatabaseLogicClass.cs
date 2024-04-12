@@ -9,6 +9,8 @@ using System.Threading;
 using Tabber_Goals.Component;
 using System.Windows.Controls;
 using System.Windows;
+using Tabber_Goals.Component.Goal_Component;
+using Tabber_Goals.Global;
 
 namespace Tabber_Goals.Database
 {
@@ -35,10 +37,8 @@ namespace Tabber_Goals.Database
                 goalControl.GoalTitle = $"Goal Title {GoalArea.Children.Count}";
                 goalControl.GoalProgress = 0;
 
-
-                goalControl.Width = 285;
-                goalControl.Height = 200;
-                goalControl.Margin = new Thickness(5);
+                //Add Goal Control Sizing
+                GlobalClass.GoalSizes(GoalArea, goalControl);
 
                 // Add goal control details to database
                 goalControl.GoalId = DatabaseAccessClass.CreateGoal(goalControl.GoalTitle, goalControl.GoalProgress, goalControl.GoalTargetDate);
@@ -152,9 +152,8 @@ namespace Tabber_Goals.Database
                     goalControl.GoalTitle = row["GoalTitle"].ToString();
                     goalControl.GoalProgress = int.Parse(row["GoalProgress"].ToString());
 
-                    goalControl.Width = 285;
-                    goalControl.Height = 200;
-                    goalControl.Margin = new Thickness(5);
+                    //Add Goal Control Sizing
+                    GlobalClass.GoalSizes(GoalArea, goalControl);
 
                     // Display goal control in goal area
                     GoalArea.Children.Add(goalControl);

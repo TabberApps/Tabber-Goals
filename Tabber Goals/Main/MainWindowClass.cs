@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Tabber_Goals.Component;
+using Tabber_Goals.Component.Goal_Component;
 using Tabber_Goals.Database;
+using Tabber_Goals.Global;
 
 namespace Tabber_Goals.Main
 {
@@ -57,6 +59,17 @@ namespace Tabber_Goals.Main
         public void LoadAllGoals(WrapPanel GoalArea)
         {
             DatabaseLogicClass.LoadAllGoals(GoalArea);
+        }
+        #endregion
+
+        #region Size Changed
+        public void GoalArea_SizeChanged(WrapPanel GoalArea)
+        {
+            foreach(GoalControl goalControl in GoalArea.Children)
+            {
+                //Add Goal Control Sizing
+                GlobalClass.GoalSizes(GoalArea, goalControl);
+            }
         }
         #endregion
 
