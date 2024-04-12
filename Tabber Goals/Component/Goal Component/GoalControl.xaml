@@ -41,7 +41,8 @@
                     VerticalAlignment="Top" HorizontalAlignment="Stretch"
                     VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
                     Width="30" Height="30"
-                    Margin="2,2,2,2" Padding="4">
+                    Margin="2,2,2,2" Padding="4"
+                    BorderThickness="0">
                 
                 <Image Source="../../Assets/Toolbar/Delete-Unselected-25px.png"/>
             </Button>

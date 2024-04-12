@@ -38,7 +38,7 @@ namespace Tabber_Goals.Database
 
                 goalControl.Width = 285;
                 goalControl.Height = 200;
-                goalControl.Margin = new Thickness(5);
+                goalControl.Margin = new Thickness(10);
 
                 // Add goal control details to database
                 goalControl.GoalId = DatabaseAccessClass.CreateGoal(goalControl.GoalTitle, goalControl.GoalProgress, goalControl.GoalTargetDate);
@@ -154,7 +154,7 @@ namespace Tabber_Goals.Database
 
                     goalControl.Width = 285;
                     goalControl.Height = 200;
-                    goalControl.Margin = new Thickness(5);
+                    goalControl.Margin = new Thickness(10);
 
                     // Display goal control in goal area
                     GoalArea.Children.Add(goalControl);
