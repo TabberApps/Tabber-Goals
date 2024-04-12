@@ -16,6 +16,9 @@ namespace Tabber_Goals.Global
             GoalControl.Width = GoalArea.ActualWidth / 5 - 20;
             GoalControl.Height = 200;
             GoalControl.Margin = new Thickness(10);
+
+            GoalControl.MinWidth = 200;
+            GoalControl.MinHeight = 200;
         }
     }
 }
