@@ -116,7 +116,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Component\Goal Component\GoalControlClass.cs" />
+    <Compile Include="Component\Goal Component\GoalControlEventsClass.cs" />
     <Compile Include="Component\Goal Component\GoalControl.xaml.cs">
       <DependentUpon>GoalControl.xaml</DependentUpon>
     </Compile>
@@ -150,7 +150,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\MainWindowClass.cs" />
+    <Compile Include="Main\MainWindowEventsClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

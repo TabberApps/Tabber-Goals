@@ -51,48 +51,48 @@ namespace Tabber_Goals.Component
         #endregion
 
         #region Classes
-        GoalControlClass GoalControlClass = new GoalControlClass();
+        GoalControlEventsClass GoalControlEventsClass = new GoalControlEventsClass();
 
         #endregion
 
         private void GoalProgressValue_TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            GoalControlClass.GoalProgressValueTextBox_GotFocus(GoalProgressValue_TextBox);
+            GoalControlEventsClass.GoalProgressValueTextBox_GotFocus(GoalProgressValue_TextBox);
         }
 
         private void GoalProgressValue_TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            GoalControlClass.GoalProgressValueTextBox_LostFocus(GoalProgressValue_TextBox, GoalProgress_ProgressBar);
+            GoalControlEventsClass.GoalProgressValueTextBox_LostFocus(GoalProgressValue_TextBox, GoalProgress_ProgressBar);
         }
 
         private void GoalProgressValue_TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            GoalControlClass.GoalProgressValueTextBox_KeyDown(e);
+            GoalControlEventsClass.GoalProgressValueTextBox_KeyDown(e);
         }
 
         private void GoalProgress_ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            GoalControlClass.GoalProgressBar_ValueChanged(GoalProgress_ProgressBar);
+            GoalControlEventsClass.GoalProgressBar_ValueChanged(GoalProgress_ProgressBar);
         }
 
         private void GoalTargetDate_DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            GoalControlClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
+            GoalControlEventsClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
         }
 
         private void GoalTitle_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            GoalControlClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
+            GoalControlEventsClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
         }
 
         private void GoalProgressValue_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            GoalControlClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
+            GoalControlEventsClass.UpdateGoal(GoalId, GoalTitle, GoalProgress, GoalTargetDate);
         }
 
         private void DeleteGoal_Button_Click(object sender, RoutedEventArgs e)
         {
-            GoalControlClass.DeleteGoal((WrapPanel)this.Parent, this, GoalId);
+            GoalControlEventsClass.DeleteGoal((WrapPanel)this.Parent, this, GoalId);
         }
     }
 }

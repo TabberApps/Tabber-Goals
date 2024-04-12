@@ -13,7 +13,7 @@ using Tabber_Goals.Database;
 
 namespace Tabber_Goals.Component.Goal_Component
 {
-    public class GoalControlClass
+    public class GoalControlEventsClass
     {
         #region Classes
         DatabaseLogicClass DatabaseLogicClass = new DatabaseLogicClass();

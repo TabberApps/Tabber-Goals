@@ -13,27 +13,13 @@ using Tabber_Goals.Global;
 
 namespace Tabber_Goals.Main
 {
-    public class MainWindowClass
+    public class MainWindowEventsClass
     {
         #region Classes
         DatabaseLogicClass DatabaseLogicClass = new DatabaseLogicClass();
         #endregion
 
         #region Methods
-
-        #region Version
-        public void LoadVersion(Window mainWindow)
-        {
-            try
-            {
-                mainWindow.Title = $"Tabber Goals : {ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()}";
-            }
-            catch 
-            {
-                mainWindow.Title = $"Tabber Goals : Developer Mode";
-            }
-        }
-        #endregion
 
         #region Toolbar
 
@@ -73,25 +59,6 @@ namespace Tabber_Goals.Main
         }
         #endregion
 
-        #endregion
-
-        #endregion
-
-        #region OLD CODE
-
-        #region Delete All Goals Button Mouse Events
-        public void DeleteAllGoalButtonMouseEvents(Button DeleteAllGoalsButton)
-        {
-            DeleteAllGoalsButton.MouseEnter += (sender, e) =>
-            {
-
-            };
-
-            DeleteAllGoalsButton.MouseEnter -= (sender, e) =>
-            {
-
-            };
-        }
         #endregion
 
         #endregion

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tabber_Goals.Component;
 using Tabber_Goals.Database;
+using Tabber_Goals.Global;
 
 namespace Tabber_Goals.Main
 {
@@ -28,29 +29,29 @@ namespace Tabber_Goals.Main
         }
 
         #region Classes
-        MainWindowClass MainWindowClass = new MainWindowClass();
+        MainWindowEventsClass MainWindowEventsClass = new MainWindowEventsClass();
         #endregion
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindowClass.LoadAllGoals(GoalArea);
-            MainWindowClass.LoadVersion(this);
+            MainWindowEventsClass.LoadAllGoals(GoalArea);
+            GlobalClass.Version(this);
         }
 
         private void AddGoalButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindowClass.CreateGoal(GoalArea);
+            MainWindowEventsClass.CreateGoal(GoalArea);
         }
 
         private void DeleteAllGoalsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindowClass.DeleteAllGoals(GoalArea);
+            MainWindowEventsClass.DeleteAllGoals(GoalArea);
         }
 
         private void GoalArea_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            MainWindowClass.GoalArea_SizeChanged(GoalArea);
+            MainWindowEventsClass.GoalArea_SizeChanged(GoalArea);
         }
     }
 }
