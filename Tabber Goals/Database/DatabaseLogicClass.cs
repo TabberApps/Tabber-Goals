@@ -152,8 +152,9 @@ namespace Tabber_Goals.Database
                     goalControl.GoalTitle = row["GoalTitle"].ToString();
                     goalControl.GoalProgress = int.Parse(row["GoalProgress"].ToString());
 
-                    //Add Goal Control Sizing
-                    GlobalClass.GoalSizes(GoalArea, goalControl);
+                    goalControl.Width = 285;
+                    goalControl.Height = 200;
+                    goalControl.Margin = new Thickness(5);
 
                     // Display goal control in goal area
                     GoalArea.Children.Add(goalControl);
