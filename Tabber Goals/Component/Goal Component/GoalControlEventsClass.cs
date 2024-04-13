@@ -91,7 +91,7 @@ namespace Tabber_Goals.Component.Goal_Component
             {
                 GoalProgressBar.Foreground = new SolidColorBrush(Color.FromRgb(251, 224, 165)); //Yellow
             }
-            else if (GoalProgressBar.Value > 75)
+            else if (GoalProgressBar.Value >= 75)
             {
                 GoalProgressBar.Foreground = new SolidColorBrush(Color.FromRgb(196, 241, 201)); //Green
             }
