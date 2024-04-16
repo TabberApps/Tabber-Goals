@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tabber_Goals.Component.Goal_Component;
+using Tabber_Goals.TabberUI.Controls;
 
 namespace Tabber_Goals.Component
 {
@@ -92,7 +93,7 @@ namespace Tabber_Goals.Component
 
         private void DeleteGoal_Button_Click(object sender, RoutedEventArgs e)
         {
-            GoalControlEventsClass.DeleteGoal((WrapPanel)this.Parent, this, GoalId);
+            GoalControlEventsClass.DeleteGoal((TabberWrapPanel)this.Parent, this, GoalId);
         }
     }
 }

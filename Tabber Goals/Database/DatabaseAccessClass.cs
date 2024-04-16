@@ -44,11 +44,12 @@ namespace Tabber_Goals.Database
 
                     // Get next goal id in goal table 
                     int nextId = (int)command.ExecuteScalar();
+                    ConnectionString.Close();
 
                     return nextId;
                 }
             }
-            catch { throw;  }
+            catch { ConnectionString.Close(); throw;  }
         }
         #endregion
 
@@ -79,9 +80,10 @@ namespace Tabber_Goals.Database
                     command.Parameters.AddWithValue("@GoalTargetDate", goalTargetDate);
                     
                     command.ExecuteNonQuery();
+                    ConnectionString.Close();
                 }
             }
-            catch { throw; }
+            catch { ConnectionString.Close(); throw; }
         }
         #endregion
 
@@ -106,9 +108,10 @@ namespace Tabber_Goals.Database
                     command.Parameters.AddWithValue("@GoalId", goalId);
 
                     command.ExecuteNonQuery();
+                    ConnectionString.Close();
                 }
             }
-            catch { throw; }
+            catch { ConnectionString.Close(); throw; }
         }
 
         #endregion
@@ -130,10 +133,12 @@ namespace Tabber_Goals.Database
                 using (SqlCommand command = new SqlCommand("DeleteAllGoals", ConnectionString))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+
                     command.ExecuteNonQuery();
+                    ConnectionString.Close();
                 }
             }
-            catch { throw; }
+            catch { ConnectionString.Close(); throw; }
         }
 
         #endregion
@@ -161,20 +166,48 @@ namespace Tabber_Goals.Database
                     { 
                         DataTable table = new DataTable();
                         adapter.Fill(table);
+                        ConnectionString.Close();
 
                         return table;
                     }
                 }
             }
-            catch (Exception ex)
-            { 
-                // Log or display the exception message
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                throw;
-            }
+            catch { ConnectionString.Close(); throw; }
         }
 
+        #endregion
+
+        #region Goal Count
+        /// <summary>
+        /// Create goal details in database 
+        /// </summary>
+        /// <param name="goalTitle"></param>
+        /// <param name="goalProgress"></param>
+        /// <param name="goalTargetDate"></param>
+        /// <returns></returns>
+        public int GoalCount()
+        {
+            if (ConnectionString.State == ConnectionState.Closed)
+            {
+                ConnectionString.Open();
+            }
+
+            try
+            {
+                // Create goal stored procedure
+                using (SqlCommand command = new SqlCommand("GoalCount", ConnectionString))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Get goal count in goal table 
+                    int goalCount = (int)command.ExecuteScalar();
+                    ConnectionString.Close();
+
+                    return goalCount;
+                }
+            }
+            catch { ConnectionString.Close(); throw; }
+        }
         #endregion
 
         #endregion

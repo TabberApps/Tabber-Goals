@@ -10,6 +10,7 @@ using Tabber_Goals.Component;
 using Tabber_Goals.Component.Goal_Component;
 using Tabber_Goals.Database;
 using Tabber_Goals.Global;
+using Tabber_Goals.TabberUI.Controls;
 
 namespace Tabber_Goals.Main
 {
@@ -24,14 +25,14 @@ namespace Tabber_Goals.Main
         #region Toolbar
 
         #region Delete All Goals
-        public void DeleteAllGoals(WrapPanel GoalArea)
+        public void DeleteAllGoals(TabberWrapPanel GoalArea)
         {
             DatabaseLogicClass.DeleteAllGoals(GoalArea);
         }
         #endregion
 
         #region Create Goal
-        public void CreateGoal(WrapPanel GoalArea)
+        public void CreateGoal(TabberWrapPanel GoalArea)
         {
             DatabaseLogicClass.CreateGoal(GoalArea);
         }
@@ -42,20 +43,31 @@ namespace Tabber_Goals.Main
         #region Goal Area
 
         #region Load
-        public void LoadAllGoals(WrapPanel GoalArea)
+        public void LoadAllGoals(TabberWrapPanel GoalArea)
         {
             DatabaseLogicClass.LoadAllGoals(GoalArea);
         }
         #endregion
 
         #region Size Changed
-        public void GoalArea_SizeChanged(WrapPanel GoalArea)
+        public void GoalArea_SizeChanged(TabberWrapPanel GoalArea)
         {
             foreach(GoalControl goalControl in GoalArea.Children)
             {
                 //Add Goal Control Sizing
                 GlobalClass.GoalSizes(GoalArea, goalControl);
             }
+        }
+        #endregion
+
+        #region Child Added/Removed
+        public void GoalArea_ChildAdded(TextBlock GoalCountLabel)
+        {
+           GlobalClass.GoalCountLabelText(GoalCountLabel);
+        }
+        public void GoalArea_ChildRemoved(TextBlock GoalCountLabel)
+        {
+            GlobalClass.GoalCountLabelText(GoalCountLabel);
         }
         #endregion
 

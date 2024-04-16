@@ -104,6 +104,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TabberUI\Controls\TabberWrapPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabberUI\Controls\TabberWrapPanel.Designer.cs">
+      <DependentUpon>TabberWrapPanel.cs</DependentUpon>
+    </Compile>
     <Page Include="Component\Goal Component\GoalControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

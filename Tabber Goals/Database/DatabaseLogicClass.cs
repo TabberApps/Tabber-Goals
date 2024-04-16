@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Windows;
 using Tabber_Goals.Component.Goal_Component;
 using Tabber_Goals.Global;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using Tabber_Goals.TabberUI.Controls;
 
 namespace Tabber_Goals.Database
 {
@@ -27,24 +29,37 @@ namespace Tabber_Goals.Database
         /// Create goal details in database and display goal control in goal area
         /// </summary>
         /// <param name="GoalArea"></param>
-        public void CreateGoal(WrapPanel GoalArea)
+        public void CreateGoal(TabberWrapPanel GoalArea)
         {
             try
             {
-                // Create goal control
-                GoalControl goalControl = new GoalControl();
-                goalControl.GoalTargetDate = DateTime.Today;
-                goalControl.GoalTitle = $"Goal Title {GoalArea.Children.Count}";
-                goalControl.GoalProgress = 0;
+                int goalCount = DatabaseAccessClass.GoalCount();
 
-                //Add Goal Control Sizing
-                GlobalClass.GoalSizes(GoalArea, goalControl);
+                if (goalCount < GlobalClass.MaximumGoalCount())
+                {
+                    // Create goal control
+                    GoalControl goalControl = new GoalControl();
+                    goalControl.GoalTargetDate = DateTime.Today;
+                    goalControl.GoalTitle = $"Goal Title {GoalArea.Children.Count}";
+                    goalControl.GoalProgress = 0;
 
-                // Add goal control details to database
-                goalControl.GoalId = DatabaseAccessClass.CreateGoal(goalControl.GoalTitle, goalControl.GoalProgress, goalControl.GoalTargetDate);
+                    //Add Goal Control Sizing
+                    GlobalClass.GoalSizes(GoalArea, goalControl);
 
-                // Display goal control in goal area
-                GoalArea.Children.Add(goalControl);
+                    // Add goal control details to database
+                    goalControl.GoalId = DatabaseAccessClass.CreateGoal(goalControl.GoalTitle, goalControl.GoalProgress, goalControl.GoalTargetDate);
+
+                    // Display goal control in goal area
+                    GoalArea.Children.Add(goalControl);
+                }
+                else
+                {
+                    // Message to show that the maximum amount of goals has been reached 
+                    string message = $"You cannot make more than {goalCount} goals.";
+                    string title = "Maximum Goals Reached";
+                    MessageBoxButton buttons = MessageBoxButton.OK;
+                    MessageBox.Show(message, title, buttons, MessageBoxImage.Question);
+                }
             }
             catch { throw; }
         }
@@ -76,10 +91,12 @@ namespace Tabber_Goals.Database
         /// <param name="GoalArea"></param>
         /// <param name="goalControl"></param>
         /// <param name="goalId"></param>
-        public void DeleteGoal(WrapPanel GoalArea, GoalControl goalControl, int goalId)
+        public void DeleteGoal(TabberWrapPanel GoalArea, GoalControl goalControl, int goalId)
         {
             try
             {
+                int goalCount = DatabaseAccessClass.GoalCount();
+
                 // User confirmation to delete goal control
                 string message = $"Are you sure you want to delete goal {goalId}. This can't undo this action.";
                 string title = "Delete Goals";
@@ -105,7 +122,7 @@ namespace Tabber_Goals.Database
         /// Delete all goal details from database and remove all goal controls from goal area
         /// </summary>
         /// <param name="GoalArea"></param>
-        public void DeleteAllGoals(WrapPanel GoalArea)
+        public void DeleteAllGoals(TabberWrapPanel GoalArea)
         {
             try
             {
@@ -134,10 +151,12 @@ namespace Tabber_Goals.Database
         /// Get all goal details from database and display all goal controls in goal area 
         /// </summary>
         /// <param name="GoalArea"></param>
-        public void LoadAllGoals(WrapPanel GoalArea)
+        public void LoadAllGoals(TabberWrapPanel GoalArea)
         {
             try
             {
+                int goalCount = DatabaseAccessClass.GoalCount();
+
                 DataTable dataTable = new DataTable();
 
                 // Get all goal details from database

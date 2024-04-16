@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Tabber_Goals.Database;
+using Tabber_Goals.TabberUI.Controls;
 
 
 namespace Tabber_Goals.Component.Goal_Component
@@ -108,9 +109,9 @@ namespace Tabber_Goals.Component.Goal_Component
         #endregion
 
         #region Delete Goal
-        public void DeleteGoal(WrapPanel goalArea, GoalControl goalControl, int goalId)
+        public void DeleteGoal(TabberWrapPanel GoalArea, GoalControl goalControl, int goalId)
         {
-            DatabaseLogicClass.DeleteGoal(goalArea, goalControl, goalId);
+            DatabaseLogicClass.DeleteGoal(GoalArea, goalControl, goalId);
         }
         #endregion
     }

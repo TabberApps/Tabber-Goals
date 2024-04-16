@@ -53,5 +53,15 @@ namespace Tabber_Goals.Main
         {
             MainWindowEventsClass.GoalArea_SizeChanged(GoalArea);
         }
+
+        private void GoalArea_ChildAdded(object sender, TabberUI.Controls.ChildChangedEventArgs e)
+        {
+            MainWindowEventsClass.GoalArea_ChildAdded(GoalCountLabel);
+        }
+
+        private void GoalArea_ChildRemoved(object sender, TabberUI.Controls.ChildChangedEventArgs e)
+        {
+            MainWindowEventsClass.GoalArea_ChildRemoved(GoalCountLabel);
+        }
     }
 }
