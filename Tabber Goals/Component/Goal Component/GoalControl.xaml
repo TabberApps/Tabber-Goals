@@ -21,12 +21,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        
-        <Border Style="{DynamicResource TabberBorderDefaultStyle}" Grid.RowSpan="5" Grid.ColumnSpan="2">
-            <Border.Effect>
-                <DropShadowEffect ShadowDepth="2" Color="#dddddd" Opacity="0.4" BlurRadius="5" Direction="310"/>
-            </Border.Effect>
-        </Border>
+
+        <Border Style="{DynamicResource TabberBorderDefaultStyle}" Grid.RowSpan="5" Grid.ColumnSpan="2"/>
 
         <!--#region Top Area -->
         
